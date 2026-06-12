@@ -1,0 +1,174 @@
+<header class="topo">
+
+  <div class="topo-conteudo">
+
+    <div class="logo">
+
+      <img src="/assets/img/logo-bella-massa.png" alt="Logo Bella Massa" class="logo-img" />
+
+    </div>
+
+    <nav>
+      <a routerLink="/cardapio">Cardápio</a>
+      <a routerLink="/carrinho">Carrinho</a>
+      <a routerLink="/meus-pedidos">Pedidos</a>
+    </nav>
+
+    <a class="btn-topo" routerLink="/cardapio">
+      Peça pelo site
+    </a>
+
+  </div>
+
+</header>
+
+<section class="hero">
+
+  <div class="hero-conteudo">
+
+    <div class="hero-texto">
+
+      <span class="tag">
+        Pizza artesanal
+      </span>
+
+      <h2>
+        Peça sua pizza pelo app ou site
+      </h2>
+
+      <p>
+        Ingredientes selecionados, massa artesanal,
+        muito queijo e entrega rápida para matar
+        sua fome do melhor jeito.
+      </p>
+
+      <div class="hero-acoes">
+
+        <a routerLink="/cardapio" class="btn-principal">
+          Ver cardápio
+        </a>
+
+        <a routerLink="/carrinho" class="btn-secundario">
+          Meu carrinho
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-imagem">
+
+      <div class="pizza-grande">
+
+        <img src="assets/img/pizza.png" alt="Pizza" class="pizza-real" />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="promo">
+
+  <div class="promo-card">
+
+    <div>
+
+      <span>
+        OFERTA ESPECIAL
+      </span>
+
+      <h3>
+        Frete grátis em pedidos acima de R$ 110
+      </h3>
+
+      <p>
+        Use o cupom
+        <strong>BELLA110</strong>
+        no fechamento do pedido.
+      </p>
+
+    </div>
+
+    <a routerLink="/cardapio">
+      Montar meu pedido
+    </a>
+
+  </div>
+
+</section>
+
+<section class="cardapio-container">
+
+  <div class="titulo-area">
+
+    <div>
+
+      <span class="subtitulo">
+        CONHEÇA NOSSOS PRODUTOS
+      </span>
+
+      <h2>
+        Nosso Cardápio
+      </h2>
+
+      <p>
+        Escolha sua pizza favorita
+        e adicione ao carrinho.
+      </p>
+
+    </div>
+
+    <a routerLink="/carrinho" class="btn-cardapio">
+      Ver carrinho
+    </a>
+
+  </div>
+
+  <div class="grid-produtos">
+
+    <div class="produto-card" *ngFor="let produto of produtos">
+
+      <div class="imagem">
+
+        <span>
+          🍕
+        </span>
+
+      </div>
+
+      <div class="conteudo">
+
+        <span class="categoria">
+          Pizza
+        </span>
+
+        <h3>
+          {{ produto.nome }}
+        </h3>
+
+        <p>
+          {{ produto.descricao }}
+        </p>
+
+        <div class="rodape">
+
+          <strong>
+            R$ {{ produto.preco }}
+          </strong>
+
+          <button type="button">
+            Adicionar
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

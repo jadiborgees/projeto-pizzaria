@@ -1,0 +1,106 @@
+<section class="pedidos-page">
+
+  <div class="pedidos-header">
+
+    <div>
+
+      <span class="tag">
+        Histórico
+      </span>
+
+      <h1>
+        Meus Pedidos
+      </h1>
+
+      <p>
+        Acompanhe seus pedidos realizados na Bella Massa.
+      </p>
+
+    </div>
+
+    <a
+      routerLink="/cardapio"
+      class="btn-cardapio"
+    >
+      Fazer novo pedido
+    </a>
+
+  </div>
+
+  <div class="pedidos-grid">
+
+    <div
+      class="pedido-card"
+      *ngFor="let pedido of pedidos"
+    >
+
+      <div class="pedido-topo">
+
+        <div>
+
+          <span class="numero">
+            Pedido {{ pedido.numero }}
+          </span>
+
+          <h2>
+            {{ pedido.status }}
+          </h2>
+
+        </div>
+
+        <div class="status">
+          {{ pedido.status }}
+        </div>
+
+      </div>
+
+      <div class="pedido-info">
+
+        <div class="info-box">
+
+          <span>Data</span>
+
+          <strong>
+            {{ pedido.data }}
+          </strong>
+
+        </div>
+
+        <div class="info-box">
+
+          <span>Total</span>
+
+          <strong>
+            R$ {{ pedido.total.toFixed(2).replace('.', ',') }}
+          </strong>
+
+        </div>
+
+      </div>
+
+      <div class="pedido-itens">
+
+        <h3>Itens do pedido</h3>
+
+        <div
+          class="item"
+          *ngFor="let item of pedido.itens"
+        >
+          🍕 {{ item }}
+        </div>
+
+      </div>
+
+      <div class="pedido-footer">
+
+        <button type="button">
+          Acompanhar pedido
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,178 @@
+.footer {
+  background:
+    linear-gradient(
+      180deg,
+      #1a0905 0%,
+      #120603 100%
+    );
+
+  color: white;
+
+  border-top: 3px solid #ff7a00;
+
+  overflow: hidden;
+}
+
+/* CONTAINER */
+
+.footer-container {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 70px 50px 50px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.1fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 60px;
+
+  align-items: start;
+}
+
+/* BRAND */
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LOGO */
+
+.logo-footer img {
+  height: 190px;
+  width: auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 10px 24px rgba(0,0,0,0.35));
+
+  transition: 0.3s;
+}
+
+.logo-footer img:hover {
+  transform: scale(1.05);
+}
+
+/* COLUNAS */
+
+.footer-links,
+.footer-contact,
+.footer-hours {
+  display: flex;
+  flex-direction: column;
+}
+
+/* TÍTULOS */
+
+.footer-links h3,
+.footer-contact h3,
+.footer-hours h3 {
+  color: #ffb347;
+
+  font-size: 24px;
+
+  margin-bottom: 28px;
+
+  font-weight: 700;
+}
+
+/* LINKS */
+
+.footer-links a {
+  text-decoration: none;
+
+  color: #f5ece8;
+
+  margin-bottom: 18px;
+
+  transition: 0.3s;
+
+  width: fit-content;
+
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: #ff9f43;
+  transform: translateX(6px);
+}
+
+/* TEXTOS */
+
+.footer-contact p,
+.footer-hours p {
+  color: #dccdc6;
+
+  margin-bottom: 18px;
+
+  line-height: 1.7;
+
+  font-size: 17px;
+}
+
+/* BOTTOM */
+
+.footer-bottom {
+  border-top:
+    1px solid rgba(255,255,255,0.08);
+
+  background: #0b0201;
+
+  padding: 28px;
+
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: #b8a39b;
+
+  font-size: 15px;
+
+  letter-spacing: 0.3px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 1000px) {
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    padding:
+      55px 28px 40px;
+
+    gap: 45px;
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  .logo-footer img {
+    height: 150px;
+  }
+
+}

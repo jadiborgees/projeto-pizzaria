@@ -1,0 +1,115 @@
+<section class="carrinho-page">
+
+  <div class="carrinho-header">
+
+    <div>
+      <span class="tag">Meu pedido</span>
+      <h1>Carrinho</h1>
+      <p>Confira seus produtos antes de finalizar o pedido.</p>
+    </div>
+
+    <a routerLink="/cardapio" class="btn-voltar">
+      Continuar comprando
+    </a>
+
+  </div>
+
+  <div class="carrinho-container" *ngIf="itens.length > 0; else carrinhoVazio">
+
+    <div class="lista-itens">
+
+      <div class="item-card" *ngFor="let item of itens; let i = index">
+
+        <div class="item-img">
+          <img [src]="item.imagem" [alt]="item.nome">
+        </div>
+
+        <div class="item-info">
+          <h2>{{ item.nome }}</h2>
+          <p>{{ item.descricao }}</p>
+
+          <strong>
+            R$ {{ item.preco.toFixed(2).replace('.', ',') }}
+          </strong>
+        </div>
+
+        <div class="quantidade">
+
+          <button type="button" (click)="diminuirQuantidade(item)">
+            -
+          </button>
+
+          <span>{{ item.quantidade }}</span>
+
+          <button type="button" (click)="aumentarQuantidade(item)">
+            +
+          </button>
+
+        </div>
+
+        <div class="item-total">
+          R$ {{ (item.preco * item.quantidade).toFixed(2).replace('.', ',') }}
+        </div>
+
+        <button class="btn-remover" type="button" (click)="removerItem(i)">
+          Remover
+        </button>
+
+      </div>
+
+    </div>
+
+    <aside class="resumo">
+
+      <h2>Resumo do pedido</h2>
+
+      <div class="linha">
+        <span>Subtotal</span>
+        <strong>R$ {{ calcularSubtotal().toFixed(2).replace('.', ',') }}</strong>
+      </div>
+
+      <div class="linha">
+        <span>Entrega</span>
+        <strong>R$ {{ taxaEntrega.toFixed(2).replace('.', ',') }}</strong>
+      </div>
+
+      <div class="divisor"></div>
+
+      <div class="linha total">
+        <span>Total</span>
+        <strong>R$ {{ calcularTotal().toFixed(2).replace('.', ',') }}</strong>
+      </div>
+
+      <button type="button" class="btn-finalizar" (click)="finalizarPedido()">
+        Finalizar pedido
+      </button>
+
+      <a routerLink="/cardapio" class="link-cardapio">
+        Adicionar mais produtos
+      </a>
+
+    </aside>
+
+  </div>
+
+  <ng-template #carrinhoVazio>
+
+    <div class="vazio">
+
+      <div class="icone">🛒</div>
+
+      <h2>Seu carrinho está vazio</h2>
+
+      <p>
+        Escolha uma pizza deliciosa no cardápio para começar seu pedido.
+      </p>
+
+      <a routerLink="/cardapio">
+        Ver cardápio
+      </a>
+
+    </div>
+
+  </ng-template>
+
+</section>
